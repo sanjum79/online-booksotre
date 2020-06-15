@@ -5,10 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
-import pk.snaseer.onlinebookstore.entity.Book;
-import pk.snaseer.onlinebookstore.projection.IsbnProjection;
-import pk.snaseer.onlinebookstore.projection.NoCategory;
-import pk.snaseer.onlinebookstore.repository.BookRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.Type;
@@ -25,11 +21,15 @@ public class RepositoryConfig implements RepositoryRestConfigurer {
 		.map(Type::getJavaType)
 		.toArray(Class[]::new));
 
-		config.getProjectionConfiguration().addProjection(NoCategory.class, IsbnProjection.class);
+		config.getCorsRegistry()
+			  .addMapping("/**")
+			  .allowedOrigins("http://localhost:4200");
 
-		config.withEntityLookup().forLookupRepository(BookRepository.class)
-			  .withIdMapping(Book::getName)
-			  .withLookup(BookRepository::findByName);
+//		config.getProjectionConfiguration().addProjection(NoCategory.class, IsbnProjection.class);
+
+//		config.withEntityLookup().forLookupRepository(BookRepository.class)
+//			  .withIdMapping(Book::getName)
+//			  .withLookup(BookRepository::findByName);
 	}
 
 	@Override

@@ -8,12 +8,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { BookCategoryComponent } from './components/book-category/book-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BookCategoryComponent
   ],
   imports: [
     BrowserModule,
