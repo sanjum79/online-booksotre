@@ -16,7 +16,7 @@ private baseUrl= "http://localhost:8080/api/v1/books"
 
 
   getBooks(theCategoryId: number): Observable<Book[]> {
-    const searchUrl = `${this.baseUrl}/search/categoryid?id=${theCategoryId}`;
+    const searchUrl = `${this.baseUrl}/search/bookcategory?id=${theCategoryId}`;
     return this.httpClient.get<GetBooksResponse>(searchUrl).pipe(
         map(response => response._embedded.books)
     );

@@ -49,6 +49,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!--HAL Browaser-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.data</groupId>-->
+			<!--<artifactId>spring-data-rest-hal-browser</artifactId>-->
+		<!--</dependency>-->
 	</dependencies>
 
 	<build>

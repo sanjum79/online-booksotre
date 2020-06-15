@@ -1,5 +1,6 @@
 package pk.snaseer.onlinebookstore.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,9 +17,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tbl_category")
-@Getter
-@Setter
-@ToString
+@Data
 public class BookCategory {
 
 	@Id

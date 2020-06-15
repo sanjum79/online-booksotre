@@ -1,8 +1,7 @@
 package pk.snaseer.onlinebookstore.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,9 +16,8 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tbl_book")
-@Getter
-@Setter
-@ToString
+@Data
+//@JsonSerialize(using = BookCustomSerializer.class)
 public class Book {
 
 	@Id
@@ -33,6 +31,9 @@ public class Book {
 	private String description;
 
 	private boolean active;
+
+	@JsonIgnore
+	private String isbn;
 
 	@Column(name = "unit_price")
 	private BigDecimal unitPrice;
