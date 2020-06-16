@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookCategoryComponent implements OnInit {
 
-
   bookCategories: BookCategory[];
 
   constructor(private _bookService: BookService) { }
@@ -23,5 +22,4 @@ export class BookCategoryComponent implements OnInit {
       data => this.bookCategories = data
     );
   }
-
 }

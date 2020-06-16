@@ -12,11 +12,11 @@ export class BookDetailsComponent implements OnInit {
 
   book: Book = new Book();
 
-  constructor(private _activatedRoue: ActivatedRoute,
+  constructor(private _activatedRoute: ActivatedRoute,
               private _bookService: BookService) { }
 
   ngOnInit() {
-    this._activatedRoue.paramMap.subscribe(
+    this._activatedRoute.paramMap.subscribe(
       ()=> {
         this.getBookInfo();
       }
@@ -24,7 +24,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   getBookInfo(){
-    const id: number = +this._activatedRoue.snapshot.paramMap.get('id');
+    const id: number = +this._activatedRoute.snapshot.paramMap.get('id');
     this._bookService.get(id).subscribe(
       data =>{
         this.book = data;

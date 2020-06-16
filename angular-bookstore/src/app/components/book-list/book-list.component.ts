@@ -1,6 +1,5 @@
 import { Book } from './../../common/book';
 import { BookService } from './../../services/book.service';
-import { BOOKS } from './../../mock-books';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
