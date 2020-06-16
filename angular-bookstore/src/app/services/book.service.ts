@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class BookService {
 
-private baseUrl= "http://localhost:8080/api/v1/books"
+  private baseUrl= "http://localhost:8080/api/v1/books"
   private categoryUrl = "http://localhost:8080/api/v1/book-category"
 
   constructor(private httpClient: HttpClient) { }
@@ -37,6 +37,11 @@ private baseUrl= "http://localhost:8080/api/v1/books"
   searchBooks(keyword: string): Observable<Book[]> {
     const searchUrl = `${this.baseUrl}/search/searchbykeyword?name=${keyword}`;
     return this.getBooksList(searchUrl);
+  }
+
+  get(bookId: number): Observable<Book> {
+    const bookDetailsUrl = `${this.baseUrl}/${bookId}`;
+    return this.httpClient.get<Book>(bookDetailsUrl);
   }
 }
 
